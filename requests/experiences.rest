@@ -1,0 +1,5 @@
+GET http://localhost:3001/api/experiences
+
+###
+
+GET http://localhost:3001/api/experiences/type/work
