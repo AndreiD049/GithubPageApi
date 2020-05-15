@@ -8,7 +8,9 @@ const { Experience, validTypes } = require('../models/experiences');
 experienceRouter.get('/', (req, res, next) => {
   Experience.find({})
     .then((exps) => {
-      res.json(exps.map((exp) => exp.toJSON()));
+      res
+        .header({ 'Cache-Control': 'max-age=3600' })
+        .json(exps.map((exp) => exp.toJSON()));
     })
     .catch((error) => next(error));
 });
@@ -25,7 +27,9 @@ experienceRouter.get('/type/:type', (req, res, next) => {
   const { type } = req.params;
   Experience.find({ type })
     .then((exps) => {
-      res.json(exps.map((exp) => exp.toJSON()));
+      res
+        .header({ 'Cache-Control': 'max-age=3600' })
+        .json(exps.map((exp) => exp.toJSON()));
     })
     .catch((error) => next(error));
 });

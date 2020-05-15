@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const projectRouter = require('./controllers/projects');
 const experienceRouter = require('./controllers/experiences');
 const config = require('./utils/config');
-const {Experience} = require('./models/experiences');
 const middleware = require('./utils/middleware');
 
 const app = express();
