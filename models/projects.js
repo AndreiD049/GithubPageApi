@@ -6,6 +6,11 @@ const projectsSchema = new mongoose.Schema({
   description: String,
   createdDate: Date,
   links: [String],
+  image: String,
+  languages: {
+    type: [String],
+    required: true,
+  },
 });
 
 // toJSON method

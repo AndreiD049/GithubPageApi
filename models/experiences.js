@@ -15,6 +15,7 @@ const experienceSchema = new mongoose.Schema({
   description: String,
   startOn: Date,
   endOn: Date,
+  image: String,
 });
 
 experienceSchema.set('toJSON', {
