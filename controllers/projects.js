@@ -9,7 +9,9 @@ const Project = require('../models/projects');
 projectRouter.get('/', (req, res, next) => {
   Project.find({})
     .then((projects) => {
-      res.json(projects.map((project) => project.toJSON()));
+      res
+        .header({ 'Cache-Control': 'max-age=3600' })
+        .json(projects.map((project) => project.toJSON()));
     })
     .catch((error) => next(error));
 });
@@ -18,7 +20,9 @@ projectRouter.get('/', (req, res, next) => {
 projectRouter.get('/:id', (req, res, next) => {
   Project.findById(req.params.id)
     .then((project) => {
-      res.json(project.toJSON());
+      res
+        .header({ 'Cache-Control': 'max-age=3600' })
+        .json(project.toJSON());
     })
     .catch((error) => next(error));
 });
